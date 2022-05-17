@@ -1,0 +1,98 @@
+@use 'abstracts' as abs;
+@use 'components';
+@use 'sass:map';
+@use 'sass:color';
+
+* {
+  box-sizing: border-box;
+}
+
+// :root{
+//   --url: https://countryflagsapi.com/svg/ar;
+// }
+
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: map.get(abs.$txt-colors, 'light-snow');
+  background-color: color.scale(
+    map.get(abs.$txt-colors, 'light-snow'),
+    $lightness: 50%
+  );
+  overflow-x: hidden;
+  // background-color: map.get(abs.$bg-colors, 'snowy');
+}
+
+.title,
+p {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 2.5rem;
+  letter-spacing: 3px;
+  text-align: center;
+  // margin: 40px 0;
+  margin-top: 0;
+  padding-top: 40px;
+  margin-bottom: 20px;
+}
+
+.title{
+  
+
+  @media screen and (min-width:470px) and (max-width:900px){
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+p {
+  font-size: 1.5rem;
+  margin-block-start: 0;
+  margin-block-end: 115px;
+  padding: 30px;
+}
+
+#city {
+  --color:  crimson;
+  color: map.get(abs.$txt-colors, 'cloudy');
+  font-size: 1.75rem;
+  display: inline-block;
+  padding-left: 40px;
+
+  background-image: url(https://countryflagsapi.com/svg/);
+  background-size: 30px 22px;
+  background-repeat: no-repeat;
+  background-position-y: center;
+
+}
+
+.open-menu {
+  position: fixed;
+
+  right: 15px;
+  bottom: 15px;
+  background-color: color.scale(map.get(abs.$txt-colors, 'stormy'),$lightness: -30%);
+  color: white;
+  border-radius: 10px;
+  border: 0px solid transparent;
+  cursor: pointer;
+  font-size: 13px;
+  max-width: 105px;
+  padding: .8em 1.25em;
+  // overflow-wrap: ; 
+  text-transform: uppercase;
+  // font-weight: bold;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px;
+
+  @media screen and (min-width: 630px){
+  bottom: 87%;
+    
+  }
+}
+
+@debug abs.$txt-colors;
+@debug map.get(abs.$txt-colors, 'cloudy');

@@ -1,0 +1,37 @@
+@use 'sass:color';
+@use 'sass:map';
+
+$bg-colors: (
+  'cloudy': hsl(196, 60%, 56%),
+  'partly-cloudy': hsl(196, 60%, 56%),
+  'rainy': hsl(196, 68%, 35%),
+  'snowy': hsl(196, 60%, 84%),
+  'stormy': rgb(14, 46, 57),
+  'sunny': hsl(55, 60%, 75%),
+);
+
+$txt-colors: (
+  'light-snow': color.scale(map.get($bg-colors, snowy), $lightness: 20%),
+  'light-storm': color.scale(map.get($bg-colors, stormy), $lightness: 40%),
+  'sunny': hsl(55, 60%, 75%),
+  'stormy': hsl(196, 60%, 14%),
+  'cloudy': hsl(196, 60%, 56%),
+);
+
+@each $name, $color in $bg-colors {
+  .bgc-#{$name} {
+    background-color: $color;
+  }
+}
+
+@each $name, $color in $txt-colors {
+  .txt-#{$name} {
+    color: $color;
+  }
+}
+
+// @each $name, $aspectRatio in $icon-AR {
+//   .ar-#{$name} {
+//     aspect-ratio: $aspectRatio;
+//   }
+// }

@@ -1,0 +1,195 @@
+@use '../abstracts' as abs;
+@use 'sass:map';
+@use 'sass:color';
+
+.side-menu-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  max-height: 100vh;
+
+
+  // background-color: crimson;
+  background-color: color.scale(
+    map.get(abs.$bg-colors, 'partly-cloudy'),
+    $lightness: 30%
+  );
+
+  color: color.scale(map.get(abs.$bg-colors, 'stormy'), $lightness: -20%);
+
+  transform: translateX(100%);
+  transition: all 0.4s ease-in;
+  &.active{
+    transform: translateX(0%)
+
+  }
+}
+
+.side-menu {
+  position: relative;
+  // position: sticky;
+  top: 0;
+  right: 0;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 75px 1fr repeat(6, 1fr);
+  grid-row-gap: 15px;
+  grid-template-areas:
+    'title title'
+    // '. .'
+    'list list';
+  // 'button button'
+  // 'button button'
+  // 'button button'
+  // 'button button'
+  // 'button button'
+  // 'button button';
+
+  // padding: 50px 15px;
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+
+  max-height: 100vh;
+
+  padding: 50px 20px;
+
+  place-items: center;
+  
+  &__close {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 20px;
+    aspect-ratio: 1;
+    background-color: transparent;
+    background-image: url(../assets/close.png);
+    background-size: cover;
+    // background-image: url('./assets/close.png');
+    border: 0;
+    cursor: pointer;
+
+
+    // opacity: 0 ;
+    // place-self: start;
+
+    // &::before {
+    //   content: '';
+    //   width: 141%;
+    //   height: 5px;
+    //   position: absolute;
+    //   top: 0%;
+    //   left: 0;
+    //   background-color: green;
+    //   transform: rotate(45deg) translateY(45px);
+    //   // transform: t;
+    //   // transform-origin: 0 0;
+    // }
+    // &::after {
+    //   content: '';
+    //   width: 141%;
+    //   height: 5px;
+    //   position: absolute;
+    //   top: 100%;
+    //   left: 0;
+    //   background-color: purple;
+    //   transform: rotate(-45deg) translateY(-45px);
+    //   // transform-origin: 0 0;
+    // }
+  }
+  &__title {
+    margin: unset;
+    padding: unset;
+    grid-area: title;
+    place-self: center;
+  }
+  &__select {
+    grid-area: list;
+    margin-block-end: 35px;
+    font-family: 'Oswald', sans-serif;
+
+    label {
+      display: inline-block;
+      margin-block-end: 10px;
+    }
+  }
+  &__country {
+    // grid-area: button;
+    position: relative;
+
+    width: 50%;
+    aspect-ratio: 14/6;
+    background-color: color.scale(
+      map.get(abs.$bg-colors, 'stormy'),
+      $lightness: -20%
+    );
+    color: white;
+    font-family: 'Krona One', 'sans serif';
+
+    text-align: right;
+    padding-right: 15px;
+    border: 0;
+    border-radius: 7px;
+    cursor: pointer;
+
+    &:hover{
+      background-color: color.scale(
+      map.get(abs.$bg-colors, 'stormy'),
+      $lightness: 10%);
+      // border-color: color.scale(
+      // map.get(abs.$bg-colors, 'stormy'),
+      // $lightness: 20%
+    
+    }
+
+    &#AR::before{
+      background-image: url(../assets/AR.svg);
+    }
+    &#AU::before{
+      background-image: url(../assets/AU.svg);
+    }
+    &#BR::before{
+      background-image: url(../assets/BR.svg);
+    }
+    &#CA::before{
+      background-image: url(../assets/CA.svg);
+    }
+    &#CO::before{
+      background-image: url(../assets/CO.svg);
+    }
+    &#ES::before{
+      background-image: url(../assets/ES.svg);
+    }
+    &#FR::before{
+      background-image: url(../assets/FR.svg);
+    }
+    &#PE::before{
+      background-image: url(../assets/PE.svg);
+    }
+    &#UK::before{
+      background-image: url(../assets/UK.svg);
+    }
+    &#US::before{
+      background-image: url(../assets/US.svg);
+    }
+
+    &::before{
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 15px;
+      width: 20px;
+      aspect-ratio: 15/9;
+      // background-color: rgb(255, 255, 255);
+      background-size: cover;
+      background-position: center;
+      
+    }
+  }
+}

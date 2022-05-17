@@ -1,0 +1,139 @@
+@use '../abstracts' as abs;
+@use 'sass:map';
+@use 'sass:color';
+
+.weather__day {
+  // background-color: rgb(0, 62, 128);
+  // background-color: wite;
+
+  position: relative;
+  display: grid;
+  @media screen and (max-width: 1300px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50% 50%;
+    grid-template-areas:
+      '. DATE'
+      'PERCENTAGE TEMP';
+    justify-self: end;
+    gap: 0 8%;
+    width: 90%;
+    max-width: 100%;
+    padding: 25px 0;
+  }
+
+  font-family: 'Krona One', sans-serif;
+  font-size: 1.25rem;
+
+  border-radius: 20px;
+
+  @media screen and (min-width: 1300px) {
+    // all: unset;
+    min-height: 50vh;
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+    // grid-template-columns: revert;
+    grid-template-rows: 50% 25% 25%;
+    // grid-template-rows: revert;
+    grid-template-areas:
+      'ICON'
+      'TEMP'
+      'PERCENTAGE';
+    gap: 0;
+  }
+
+  & > * {
+    place-self: center start;
+    // place-self: center;
+  }
+
+  .weather__date {
+    grid-area: DATE;
+    place-self: start;
+    // background-color: crimson;
+
+    @media screen and (min-width: 1300px) {
+      grid-area: unset;
+      position: absolute;
+      display: block;
+      width: 100%;
+      text-align: center;
+      top: -60px;
+      font-size: 1.7rem;
+      font-weight: bold;
+      color: color.scale(map.get(abs.$bg-colors, 'stormy'), $lightness: 10%);
+    }
+  }
+  .weather__pop {
+    grid-area: PERCENTAGE;
+    place-self: center end;
+    font-size: 0.9rem;
+    display: inline-block;
+    // padding: 7px 0 7px 30px;
+    padding-bottom: 7px;
+    // position: relative;
+    align-self: end;
+
+    // background-image: url(../assets/icon-precipitation.svg);
+    // background-size: 25px 20px;
+    // background-repeat: no-repeat;
+    // background-position-y: top;
+    // overflow: visible;
+    // backdrop-filter: drop-shadow(4px 4px 10px blue);
+
+    @media screen and (min-width: 1300px) {
+      grid-area: PERCENTAGE;
+      // position: absolute;
+      justify-self: center;
+      align-self: center;
+    }
+
+    // & svg{
+    //   // fill: currentColor;
+    //   // margin-right: 5px;
+    // }
+  }
+  .weather__temp {
+    grid-area: TEMP;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: 2.25rem;
+
+    @media screen and (min-width: 1300px) {
+      justify-self: center;
+    }
+  }
+
+  .weather__icon {
+    position: absolute;
+    top: -25px;
+    left: -25px;
+    width: 100px;
+    filter: drop-shadow(5px 5px 5px black);
+    // mix-blend-mode: luminosity;
+    // z-index: ;
+    // fill: currentColor;
+
+    // @media screen and (min-width: 450px){
+    //   left: 10%;
+
+    // }
+
+    @media screen and (min-width: 630px) {
+      top: -20px;
+      left: -15%;
+      width: 40%;
+      max-width: 130px;
+    }
+
+    @media screen and (min-width: 1300px) {
+      grid-area: ICON;
+      position: unset;
+      justify-self: center;
+      width: 110%;
+      max-width: unset;
+    }
+  }
+}
