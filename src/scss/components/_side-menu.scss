@@ -11,7 +11,6 @@
   height: 100%;
   max-height: 100vh;
 
-
   // background-color: crimson;
   background-color: color.scale(
     map.get(abs.$bg-colors, 'partly-cloudy'),
@@ -22,9 +21,8 @@
 
   transform: translateX(100%);
   transition: all 0.4s ease-in;
-  &.active{
-    transform: translateX(0%)
-
+  &.active {
+    transform: translateX(0%);
   }
 }
 
@@ -60,7 +58,7 @@
   padding: 50px 20px;
 
   place-items: center;
-  
+
   &__close {
     position: absolute;
     left: 5px;
@@ -73,7 +71,6 @@
     // background-image: url('./assets/close.png');
     border: 0;
     cursor: pointer;
-
 
     // opacity: 0 ;
     // place-self: start;
@@ -137,48 +134,48 @@
     border-radius: 7px;
     cursor: pointer;
 
-    &:hover{
+    &:hover {
       background-color: color.scale(
-      map.get(abs.$bg-colors, 'stormy'),
-      $lightness: 10%);
+        map.get(abs.$bg-colors, 'stormy'),
+        $lightness: 10%
+      );
       // border-color: color.scale(
       // map.get(abs.$bg-colors, 'stormy'),
       // $lightness: 20%
-    
     }
 
-    &#AR::before{
-      background-image: url(../assets/AR.svg);
+    &#AR::before {
+      background-image: url(../assets/ar.svg);
     }
-    &#AU::before{
-      background-image: url(../assets/AU.svg);
+    &#AU::before {
+      background-image: url(../assets/au.svg);
     }
-    &#BR::before{
-      background-image: url(../assets/BR.svg);
+    &#BR::before {
+      background-image: url(../assets/br.svg);
     }
-    &#CA::before{
-      background-image: url(../assets/CA.svg);
+    &#CA::before {
+      background-image: url(../assets/ca.svg);
     }
-    &#CO::before{
-      background-image: url(../assets/CO.svg);
+    &#CO::before {
+      background-image: url(../assets/co.svg);
     }
-    &#ES::before{
-      background-image: url(../assets/ES.svg);
+    &#ES::before {
+      background-image: url(../assets/es.svg);
     }
-    &#FR::before{
-      background-image: url(../assets/FR.svg);
+    &#FR::before {
+      background-image: url(../assets/fr.svg);
     }
-    &#PE::before{
-      background-image: url(../assets/PE.svg);
+    &#PE::before {
+      background-image: url(../assets/pe.svg);
     }
-    &#UK::before{
-      background-image: url(../assets/UK.svg);
+    &#UK::before {
+      background-image: url(../assets/uk.svg);
     }
-    &#US::before{
-      background-image: url(../assets/US.svg);
+    &#US::before {
+      background-image: url(../assets/us.svg);
     }
 
-    &::before{
+    &::before {
       content: '';
       position: absolute;
       top: 50%;
@@ -189,7 +186,6 @@
       // background-color: rgb(255, 255, 255);
       background-size: cover;
       background-position: center;
-      
     }
   }
 }
